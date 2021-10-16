@@ -51,3 +51,5 @@
 
 (package! all-the-icons)
 (package! lsp-pyright)
+(package! org-bullets)
+(package! org-autolist)

@@ -65,7 +65,6 @@
 ;;---------------------------------------------------------
 
 (use-package lsp-pyright
-  :ensure t
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
                           (lsp))))
@@ -77,7 +76,6 @@
 ;; LaTeX
 ;;---------------------------------------------------------
 (use-package pdf-tools
-  :ensure t
   :config
   (unless (package-installed-p 'pdf-tools)
     (pdf-tools-install)))
@@ -89,4 +87,16 @@
   (:map LaTeX-mode-map
         ("C-c v u" . latex-preview-pane-update)
         ("C-c v s" . latex-preview-pane-mode)))
+;;---------------------------------------------------------
+
+;;---------------------------------------------------------
+;; Org Mode
+;;---------------------------------------------------------
+
+(after! org
+  (setq org-directoty "~/Documents/Org Mode/")
+  (setq org-agenda-files '("~/Documents/Org Mode/agenda.org"))
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (add-hook 'org-mode-hook (lambda () (org-autolist-mode))))
 ;;---------------------------------------------------------
